@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Bookcard from "./components/bookcard"
 
 function App() {
   const books = [
@@ -34,7 +35,27 @@ function App() {
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
+  return(
+    <>
+    
+    <div style={{display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        padding:" 20px",
+        flexWrap:" wrap",
+        gap: "20px"}}>
+     <h1 style={{width: "100%",
+       marginBottom: "20px",
+       fontSize: "24px"
+       }}>Digital Library Application</h1>
+    {
+     books.map((book)=>(
+      <Bookcard key = {book.id} image = {book.image} name = {book.name} genre={book.genre} author = {book.author} />
+    ))  
+    }
+    </div>
+    </>
+  )
 }
 
 export default App;
